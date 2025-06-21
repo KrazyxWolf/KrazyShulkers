@@ -35,7 +35,7 @@ public class InteractListener implements Listener {
     public void onInteract(PlayerInteractEvent e) {
         Player player = e.getPlayer();
 
-        if (e.getAction() != Action.RIGHT_CLICK_AIR) {
+        if (e.getAction() == Action.RIGHT_CLICK_AIR) {
             if (!plugin.getSettings().getBoolean("shulker.enable_right_click_open", true)) {
                 return;
             }
