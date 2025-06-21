@@ -5,6 +5,7 @@
 .idea/*
 *.iml
 *.tmp
+git/
 .DS_Store
 scripts/
 

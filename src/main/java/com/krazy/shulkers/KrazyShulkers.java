@@ -22,6 +22,7 @@ public class KrazyShulkers extends JavaPlugin {
     @Override
     public void onEnable() {
         settings = new Config(this);
+        settings.setup();
         shulkerManager = new ShulkerManager(this);
         new InteractListener(this);
         new InventoryCloseListener(this);
