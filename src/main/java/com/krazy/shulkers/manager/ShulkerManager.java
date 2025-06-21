@@ -58,7 +58,7 @@ public class ShulkerManager {
 
         if(!Cooldown.checkCooldown(player, "shulker-open", cooldown) && !player.hasPermission("voxshulkers.bypass.cooldown")) {
             player.sendMessage(MessageKeys.COOLDOWN.get("{time}", StringUtil.formattedTime(Cooldown.getCooldown(player, "shulker-open"), config)));
-        	return;
+            return;
         }
 
         // close the player's current inventory if they have one open
@@ -203,25 +203,25 @@ public class ShulkerManager {
         Config config = plugin.getSettings();
         
         if(type.equals(MessageSoundComb.OPEN)) {
-        	player.sendRichMessage(MessageKeys.OPEN_MESSAGE.get("{shulker_name}", getShulkerPlaceholderReplacement(shulker)));
+            player.sendRichMessage(MessageKeys.OPEN_MESSAGE.get("{shulker_name}", getShulkerPlaceholderReplacement(shulker)));
         } else {        	        	
-        	player.sendRichMessage(MessageKeys.CLOSE_MESSAGE.get("{shulker_name}", getShulkerPlaceholderReplacement(shulker)));
+            player.sendRichMessage(MessageKeys.CLOSE_MESSAGE.get("{shulker_name}", getShulkerPlaceholderReplacement(shulker)));
         }
         
         Sound toPlay = null;
 
         if(type.equals(MessageSoundComb.OPEN)) {
-        	String key = config.getString("sounds.open_sound", "minecraft:block.shulker_box.open").toLowerCase();
+            String key = config.getString("sounds.open_sound", "minecraft:block.shulker_box.open").toLowerCase();
         	
-        	if(!key.contains(":")) key = "minecraft:" + key;
+            if(!key.contains(":")) key = "minecraft:" + key;
         	
-        	toPlay = Registry.SOUNDS.get(Key.key(key));
+            toPlay = Registry.SOUNDS.get(Key.key(key));
         } else {
-        	String key = config.getString("sounds.close_sound", "minecraft:block.shulker_box.close");
+            String key = config.getString("sounds.close_sound", "minecraft:block.shulker_box.close");
         	
-        	if(!key.contains(":")) key = "minecraft:" + key;
+            if(!key.contains(":")) key = "minecraft:" + key;
         	
-        	toPlay = Registry.SOUNDS.get(Key.key(key));
+            toPlay = Registry.SOUNDS.get(Key.key(key));
         }
         
         if(toPlay != null) player.playSound(player.getLocation(), toPlay, 0.5f, 1.0f);
