@@ -1,5 +1,6 @@
 package com.krazy.shulkers.listeners;
 
+import org.bukkit.Bukkit;
 import org.bukkit.block.Block;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -119,6 +120,14 @@ public class InteractListener implements Listener {
         if(!isShulker) return;
 
         e.setCancelled(true);
-        plugin.getShulkerManager().openShulkerBoxInventory(player, clicked, SlotType.INVENTORY, e.getRawSlot());
+        ItemStack oldItem = clicked.clone();
+        // Run the handler in 1 tick to not desync the inventory.
+        Bukkit.getScheduler().runTask(plugin, () -> {
+            ItemStack currentItem = clickedInventory.getItem(e.getSlot());
+            // Make sure the item has not changed since the click.
+            if (oldItem.equals(currentItem)) {
+                plugin.getShulkerManager().openShulkerBoxInventory(player, currentItem, SlotType.INVENTORY, e.getRawSlot());
+            }
+        });
     }
 }

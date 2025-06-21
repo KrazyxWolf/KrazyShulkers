@@ -8,6 +8,7 @@ import org.bukkit.event.Listener;
 import org.bukkit.event.block.BlockPlaceEvent;
 import org.bukkit.event.entity.PlayerDeathEvent;
 import org.bukkit.event.inventory.*;
+import org.bukkit.event.player.PlayerCommandPreprocessEvent;
 import org.bukkit.event.player.PlayerDropItemEvent;
 import org.bukkit.event.player.PlayerInteractEntityEvent;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -175,6 +176,7 @@ public class InventoryCloseListener implements Listener {
     public void onClick(InventoryClickEvent e) {
         Player player = (Player) e.getWhoClicked();
         Inventory clickedInventory = e.getClickedInventory();
+        
         if (clickedInventory == null) return;
 
         Inventory topInventory = player.getOpenInventory().getTopInventory();
@@ -187,6 +189,7 @@ public class InventoryCloseListener implements Listener {
         }
 
         ItemStack clickedItem = e.getCurrentItem();
+
         if (clickedItem == null || !MaterialUtil.isShulkerBox(clickedItem.getType())) return;
 
         if (correspondingStack.equals(clickedItem)) {
@@ -202,7 +205,6 @@ public class InventoryCloseListener implements Listener {
         cancelIfPlayerHasShulkerOpen(e.getPlayer(), e);
     }
 
-
     /*
      * This should prevent players from
      * */
@@ -211,6 +213,14 @@ public class InventoryCloseListener implements Listener {
         cancelIfPlayerHasShulkerOpen(e.getPlayer(), e);
     }
 
+    /*
+     * This should prevent players from putting a BSB shulker in auction
+     * (or otherwise use commands to remove it from their inventory) while having a BSB shulker open
+     */
+    @EventHandler
+    public void onPlayerCommandPreprocessEvent(PlayerCommandPreprocessEvent e){
+        cancelIfPlayerHasShulkerOpen(e.getPlayer(), e);
+    }
 
     private void cancelIfPlayerHasShulkerOpen(Player player, Cancellable cancellable) {
         if (player.getOpenInventory().getType() != InventoryType.SHULKER_BOX) {
