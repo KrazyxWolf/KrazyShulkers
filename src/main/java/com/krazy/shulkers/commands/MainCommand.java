@@ -20,12 +20,12 @@ public class MainCommand implements CommandExecutor {
     @Override
     public boolean onCommand(CommandSender sender, Command command, String label, String[] args) {
         if (!sender.hasPermission(KSBPermission.ADMIN.toString())) {
-            sender.sendRichMessage(MessageKeys.NO_PERMISSION.get());
+            MessageKeys.send(sender, MessageKeys.NO_PERMISSION.get());
             return true;
         }
         if (args[0].equalsIgnoreCase("reload")) {
             plugin.getSettings().reload();
-            sender.sendRichMessage(MessageKeys.RELOAD.get());
+            MessageKeys.send(sender, MessageKeys.RELOAD.get());
         }
         return false;
     }

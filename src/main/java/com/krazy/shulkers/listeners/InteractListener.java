@@ -36,7 +36,7 @@ public class InteractListener implements Listener {
         Player player = e.getPlayer();
 
         if (e.getAction() != Action.RIGHT_CLICK_AIR) {
-            if (!plugin.getSettings().getBoolean("shulker.enable_right_click_open")) {
+            if (!plugin.getSettings().getBoolean("shulker.enable_right_click_open", true)) {
                 return;
             }
 
@@ -45,9 +45,11 @@ public class InteractListener implements Listener {
             if (item.getAmount() > 1 || item.getAmount() < 1) return; // Do not open if stacked: compatible stacking plugin
             if (!MaterialUtil.isShulkerBox(item.getType())) return;
             if (Check.isWorldDisabled(player.getWorld().getName(), e.getEventName())) {
+                MessageKeys.send(player, MessageKeys.DISABLED_WORLD.get());
                 return;
             }
             if (Check.isRegionDisabled(player.getLocation(), e.getEventName())) {
+                MessageKeys.send(player, MessageKeys.DISABLED_REGION.get());
                 return;
             }
 
@@ -90,7 +92,9 @@ public class InteractListener implements Listener {
 
     @EventHandler(ignoreCancelled = true)
     public void onClick(InventoryClickEvent e) {
-        if(!plugin.getSettings().getBoolean("shulkers.enable_inventory_click_open")) return;
+        if(!plugin.getSettings().getBoolean("shulkers.enable_inventory_click_open", false)) {
+            return;
+        }
 
         Player player = (Player) e.getWhoClicked();
         Inventory clickedInventory = e.getClickedInventory();

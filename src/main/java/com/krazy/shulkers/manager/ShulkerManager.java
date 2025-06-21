@@ -49,15 +49,15 @@ public class ShulkerManager {
         //permission check
         if (config.getBoolean("shulkers.requires_permission", true) &&
                 !player.hasPermission(KSBPermission.OPEN_SHULKER.toString())) {
-            player.sendRichMessage(MessageKeys.NO_PERMISSION.get());
+            MessageKeys.send(player, MessageKeys.NO_PERMISSION.get());
             return;
         }
 
         // Cooldown check
         long cooldown = config.getLong("shulkers.cooldown", 5L) * 1000;
 
-        if(!Cooldown.checkCooldown(player, "shulker-open", cooldown) && !player.hasPermission("voxshulkers.bypass.cooldown")) {
-            player.sendMessage(MessageKeys.COOLDOWN.get("{time}", StringUtil.formattedTime(Cooldown.getCooldown(player, "shulker-open"), config)));
+        if(!Cooldown.checkCooldown(player, "shulker-open", cooldown) && !player.hasPermission(KSBPermission.BYPASS_COOLDOWN.toString())) {
+            MessageKeys.send(player, MessageKeys.COOLDOWN.get("{time}", StringUtil.formattedTime(Cooldown.getCooldown(player, "shulker-open"), config)));
             return;
         }
 
@@ -203,9 +203,9 @@ public class ShulkerManager {
         Config config = plugin.getSettings();
         
         if(type.equals(MessageSoundComb.OPEN)) {
-            player.sendRichMessage(MessageKeys.OPEN_MESSAGE.get("{shulker_name}", getShulkerPlaceholderReplacement(shulker)));
+            MessageKeys.send(player, MessageKeys.OPEN_MESSAGE.get("{shulker_name}", getShulkerPlaceholderReplacement(shulker)));
         } else {        	        	
-            player.sendRichMessage(MessageKeys.CLOSE_MESSAGE.get("{shulker_name}", getShulkerPlaceholderReplacement(shulker)));
+            MessageKeys.send(player, MessageKeys.CLOSE_MESSAGE.get("{shulker_name}", getShulkerPlaceholderReplacement(shulker)));
         }
         
         Sound toPlay = null;
