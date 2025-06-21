@@ -1,1 +1,36 @@
-# Please go to https://github.com/lMartin3/BetterShulkerBoxesRewritten/blob/master/default_config.yml
+# Open and close sounds, use sound names from this list https://minecraft.wiki/w/Sounds.json#Java_Edition_values and custom sounds from texturepacks
+sounds:
+  open_sound: 'minecraft:block.shulker_box.open'
+  close_sound: 'minecraft:block.shulker_box.close'
+
+# Cancel actions made by events involving shulker boxes in worlds or specific WorldGuard regions
+events:
+  PlayerInteractEvent:
+    disabled_worlds:
+    - 'example_world'
+    disabled_regions:
+    - 'example_region'
+
+# Warn staff about illegal interactions/attempts to use an exploit
+extra:
+  warn_staffs: true
+
+shulkers:
+  cooldown: 5 # Long - Time a player has to wait between uses of the plugin's features, set to 0 to disable
+  inventory_name: '{shulker_name}' # String - Text to be displayed as the inventory title, use %shulker_name% to display the item name
+  requires_permission: true # Boolean - Set this to false if you want to allow anyone to use the plugin
+  enable_read_only: false # Boolean - Set this to true if you just want players to be able to preview a shulkerbox's contents
+  enable_right_click_open: true # Boolean - Set this to false if you do not want to allow players to open a shulker by rightclicking
+  enable_inventory_click_open: false # Boolean - Set this to false if you do not want to allow players to open a shulker by shift clicking in their inventories
+  disable_movement_check: false # Boolean - Set this to true if you want players to be able to open shulkerboxes using the plugin while moving
+  enable_chest_sort_hook: true # Boolean - Set this to true if you want BSB to hook with ChestSort (Inventory sorting plugin)
+  enable_worldguard_hook: true # Boolean - Set this to true to enable WorldGuard hook
+
+messages:
+  prefix: '<#de99fc><b>SHULKERS</b></#de99fc> <dark_gray>»</dark_gray>' # String - Chat prefix, do not add a space or any other characters after it
+  reload: '{prefix} <gray>Configuration reloaded successfully.</gray>'
+  cooldown: '{prefix} <red>You have to wait</red> <aqua>{time}</aqua> <red>before using this again.</red>' # - String - Message to be sent to players who have to wait for the cooldown, use %minutes% and %seconds% to display the time remaining
+  open_message: '{prefix} <gray>Opening shulkerbox (</gray>{shulker_name}<gray>)...</gray>' # String - Message to be sent to a player when they open a shulker box, use %shulker_name% to display the item name, leave empty to disable
+  close_message: '{prefix} <gray>Closing shulkerbox (</gray>{shulker_name}<gray>)...</gray>' # String - Message to be sent to a player when they close a shulker box, use %shulker_name% to display the item name, leave empty to disable
+  no_permission: '{prefix} <red>No permission.</red>' # String - Message to be sent to players who don't have permissions to use certain features of the plugin
+  illegal_interaction: '{prefix} <white>{player}</white> <gray>is trying to store a shulkerbox while its inventory is open. Possible illegal mod involved.</gray>'  # String - Alert send to staffs when someone is trying to use the pot exploit

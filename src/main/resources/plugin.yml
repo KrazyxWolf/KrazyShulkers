@@ -1,25 +1,24 @@
-name: 'BetterShulkerBoxes'
-version: 4.1.1
-main: dev.martinl.bsbrewritten.BSBRewritten
-author: 'Rektb (lMartin3#1975)'
-api-version: '1.13'
-commands:
-  bsb:
-    description: 'Main BetterShulkerBoxes command'
-
+name: 'KrazyShulkers'
+authors: [Rektb (lMartin3#1975), KrazyxWolf_]
+version: ${project.version}
+api-version: '1.20.6'
 softdepend: [ChestSort, WorldGuard]
+main: com.krazy.shulkers.KrazyShulkers
+commands:
+  ksb:
+    description: 'Main KrazyShulkers command'
 
 permissions:
-  bettershulkerboxes.*:
-    description: Grants all BetterShulkerBoxes permissions
+  krazyshulkers.*:
+    description: Grants all KrazyShulkers permissions
     children:
-      bettershulkerboxes.use: true
-      bettershulkerboxes.admin: true
-      bettershulkerboxes.bypasscooldown: true
-  bettershulkerboxes.use:
+      krazyshulkers.use: true
+      krazyshulkers.admin: true
+      krazyshulkers.bypasscooldown: true
+  krazyshulkers.use:
     description: Allows the player to use the plugin's features
-  bettershulkerboxes.admin:
-    description: Allows the player to reload the configuration and check for updates
-  bettershulkerboxes.bypasscooldown:
+  krazyshulkers.admin:
+    description: Allows the player to reload the configuration
+  krazyshulkers.bypasscooldown:
     description: Allows the player to bypass the established cooldown
 

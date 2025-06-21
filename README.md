@@ -40,7 +40,7 @@ Available translations:
 | Permission                        | Description                                                                                                                                                                               |
 |-----------------------------------|-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
 | bettershulkerboxes.use            | Allows the player to use the plugin's features                                                                                                                                            |
-| bettershulkerboxes.admin          | Allows the player to reload the plugin's configuration and check for updates. Players with this permission will also get alerted if a new version is available when they join the server. |
+| bettershulkerboxes.admin          | Allows the player to reload the plugin's configuration. Players with this permission will also get alerted if a new version is available when they join the server. |
 | bettershulkerboxes.bypasscooldown | Allows the player to bypass the configured cooldown                                                                                                                                       |
 | bettershulkerboxes.*              | Grants all permissions                                                                                                                                                                    |
 
@@ -48,7 +48,6 @@ Available translations:
 | Command     | Description              |
 |-------------|--------------------------|
 | /bsb reload | Reload the configuration |
-| /bsb check  | Check for updates        |
 
 ## Using hex colors, gradients, rainbows and more
 BetterShulkerBoxes supports regular color encodings (`& + letter`) as well as hex colors. These can be used
