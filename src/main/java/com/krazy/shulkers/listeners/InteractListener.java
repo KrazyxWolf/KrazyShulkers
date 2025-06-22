@@ -112,12 +112,13 @@ public class InteractListener implements Listener {
 
         boolean isShulker = clicked!=null && MaterialUtil.isShulkerBox(clicked.getType());
 
-        if (player.getOpenInventory().getTopInventory().getType() != InventoryType.CRAFTING) {
-            if(!isShulker) {
-                return;
-            }
+        InventoryType type = player.getOpenInventory().getTopInventory().getType();
+        
+        if (type == InventoryType.CRAFTER) return;
+        if (type != InventoryType.CRAFTING) {
+            if (!isShulker) return;
         }
-        if(!isShulker) return;
+        if (!isShulker) return;
 
         e.setCancelled(true);
         ItemStack oldItem = clicked.clone();
