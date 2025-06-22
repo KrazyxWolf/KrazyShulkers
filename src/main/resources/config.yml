@@ -11,13 +11,20 @@ events:
     disabled_regions:
     - 'example_region'
 
+# Time units to display in the cooldown message if {time} placeholder is present
+units:
+  day: 'd'
+  hour: 'h'
+  minute: 'm'
+  second: 's'
+
 # Warn staff about illegal interactions/attempts to use an exploit
 extra:
   warn_staffs: true
 
 shulkers:
   cooldown: 5 # Long - Time a player has to wait between uses of the plugin's features, set to 0 to disable
-  inventory_name: '{shulker_name}' # String - Text to be displayed as the inventory title, use %shulker_name% to display the item name
+  inventory_name: '{shulker_name}' # String - Text to be displayed as the inventory title, use {shulker_name} to display the item name
   requires_permission: true # Boolean - Set this to false if you want to allow anyone to use the plugin
   enable_read_only: false # Boolean - Set this to true if you just want players to be able to preview a shulkerbox's contents
   enable_right_click_open: true # Boolean - Set this to false if you do not want to allow players to open a shulker by rightclicking
