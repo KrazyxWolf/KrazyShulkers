@@ -10,6 +10,10 @@ This project currently supports paper versions 1.21 and above,
 only the latest builds are supported. The plugin will most probably work on custom forks,
 but it is not guaranteed.
 
+## Notice
+This project is an modified version of BetterShulkerBoxes made for continuous support and
+correction of critical issues.
+
 ## Installation
 1- Download or compile the JAR<br>
 2- Drop the JAR in your server's plugin folder<br>
