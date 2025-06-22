@@ -12,7 +12,7 @@ but it is not guaranteed.
 
 ## Notice
 This project is an modified version of BetterShulkerBoxes made for continuous support and
-correction of critical issues.
+correction of critical issues. You can see the original project [here](https://github.com/lMartin3/BetterShulkerBoxesRewritten)
 
 ## Installation
 1- Download or compile the JAR<br>
@@ -37,7 +37,7 @@ to see the default configuration settings, every option has an explanation of wh
 ## Commands
 | Command     | Description              |
 |-------------|--------------------------|
-| /bsb reload | Reload the configuration |
+| /ksb reload | Reload the configuration |
 
 ## Using hex colors, gradients, rainbows and more
 KrazyShulkers supports MiniMessage color format (`<color>`) as well as hex colors (`<#RRGGBB>`).
