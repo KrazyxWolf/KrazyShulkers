@@ -70,7 +70,7 @@ public enum MessageKeys {
         sender.sendRichMessage(message);
     }
 
-    public static void broadcast(CommandSender sender, String message, String permission) {
+    public static void broadcast(String message, String permission) {
         if(message.isBlank()) return;
 
         Component text = StringUtil.getMiniMessage().deserialize(message);

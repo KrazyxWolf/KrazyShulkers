@@ -81,7 +81,7 @@ public class InteractListener implements Listener {
                 plugin.getLogger().severe(player.getName() + " is trying to store an open shulker in a pot. Possible illegal mod involved.");
 
                 if(plugin.getSettings().getBoolean("events." + e.getEventName() + ".notify_violations", true)) {
-                    MessageKeys.broadcast(player, MessageKeys.ILLEGAL_INTERACTION.get("{player}", player.getName()), KSBPermission.RECEIVE_ALERTS.toString());
+                    MessageKeys.broadcast(MessageKeys.ILLEGAL_INTERACTION.get("{player}", player.getName()), KSBPermission.RECEIVE_ALERTS.toString());
                 }
 
                 e.setCancelled(true);

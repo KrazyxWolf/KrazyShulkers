@@ -257,7 +257,7 @@ public class InventoryCloseListener implements Listener {
             replacements.put("{player}", player.getName());
             replacements.put("{event}", event);
 
-            MessageKeys.broadcast(player, MessageKeys.ILLEGAL_ACTION.get(replacements), KSBPermission.RECEIVE_ALERTS.toString());
+            MessageKeys.broadcast(MessageKeys.ILLEGAL_ACTION.get(replacements), KSBPermission.RECEIVE_ALERTS.toString());
         }
     }
 
