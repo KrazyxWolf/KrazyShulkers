@@ -41,6 +41,10 @@ public class Config {
     	config = YamlConfiguration.loadConfiguration(file);
     }
 
+    public boolean contains(String path) {
+        return config.contains(path);
+    }
+
     public long getLong(String path) {
         return config.getLong(path);
     }
@@ -67,9 +71,5 @@ public class Config {
 
     public List<String> getStringList(String path) {
         return config.getStringList(path);
-    }
-
-    public FileConfiguration getFile() {
-        return config;
     }
 }

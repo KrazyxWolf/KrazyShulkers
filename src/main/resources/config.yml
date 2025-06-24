@@ -4,12 +4,22 @@ sounds:
   close_sound: 'minecraft:block.shulker_box.close'
 
 # Cancel actions made by events involving shulker boxes in worlds or specific WorldGuard regions
+# and send notifications when someone tries to use an exploit involving opened shulker inventories
 events:
+  BlockPlaceEvent:
+    notify_violations: true
   PlayerInteractEvent:
     disabled_worlds:
     - 'example_world'
     disabled_regions:
     - 'example_region'
+    notify_violations: true
+  AsyncPlayerChatEvent:
+    notify_violations: true
+  PlayerInteractEntityEvent:
+    notify_violations: true
+  PlayerCommandPreProcessEvent:
+    notify_violations: true
 
 # Time units to display in the cooldown message if {time} placeholder is present
 units:
@@ -17,10 +27,6 @@ units:
   hour: 'h'
   minute: 'm'
   second: 's'
-
-# Warn staff about illegal interactions/attempts to use an exploit
-extra:
-  warn_staffs: true
 
 shulkers:
   cooldown: 5 # Long - Time a player has to wait between uses of the plugin's features, set to 0 to disable
@@ -30,7 +36,7 @@ shulkers:
   enable_right_click_open: true # Boolean - Set this to false if you do not want to allow players to open a shulker by rightclicking
   enable_inventory_click_open: false # Boolean - Set this to false if you do not want to allow players to open a shulker by shift clicking in their inventories
   disable_movement_check: false # Boolean - Set this to true if you want players to be able to open shulkerboxes using the plugin while moving
-  enable_chest_sort_hook: true # Boolean - Set this to true if you want BSB to hook with ChestSort (Inventory sorting plugin)
+  enable_chest_sort_hook: true # Boolean - Set this to true if you want to hook with ChestSort (Inventory sorting plugin)
   enable_worldguard_hook: true # Boolean - Set this to true to enable WorldGuard hook
 
 messages:

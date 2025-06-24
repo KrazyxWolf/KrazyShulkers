@@ -11,8 +11,8 @@ only the latest builds are supported. The plugin will most probably work on cust
 but it is not guaranteed.
 
 ## Notice
-This project is an modified version of BetterShulkerBoxes made for continuous support and
-correction of critical issues. You can see the original project [here](https://github.com/lMartin3/BetterShulkerBoxesRewritten)
+This project is a modified and independently mantained version of [BetterShulkerBoxes](https://github.com/lMartin3/BetterShulkerBoxesRewritten), originally devoloped by [lMartin3](https://github.com/lMartin3).
+It exists for continuous support and correction of critical issues for modern paper servers. The original project appears to be unmaintained as of May 2, 2023.
 
 ## Installation
 1- Download or compile the JAR<br>

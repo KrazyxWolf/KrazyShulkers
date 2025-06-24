@@ -21,7 +21,6 @@ import com.krazy.shulkers.manager.SlotType;
 import com.krazy.shulkers.util.Check;
 import com.krazy.shulkers.util.KSBPermission;
 import com.krazy.shulkers.util.MaterialUtil;
-import com.krazy.shulkers.util.StringUtil;
 
 public class InteractListener implements Listener {
 
@@ -59,9 +58,9 @@ public class InteractListener implements Listener {
             plugin.getShulkerManager().openShulkerBoxInventory(e.getPlayer(), item, SlotType.HOTBAR, e.getPlayer().getInventory().getHeldItemSlot());
         } else if(e.getAction() == Action.RIGHT_CLICK_BLOCK) {
             /*
-             * This prevents an exploit in which a player closes an inventory
-             * locally, the packet is not sent, and then tries to store the shulker
-             * in a decorated pot and duplicates items
+             * This prevents players from storing a shulker box
+             * in a decorated pot while a shulker box inventory 
+             * opened through by the plugin is still open.
              */
             Block block = e.getClickedBlock();
 
@@ -81,8 +80,8 @@ public class InteractListener implements Listener {
             if(item != null && item.equals(data.getItemStack())) {
                 plugin.getLogger().severe(player.getName() + " is trying to store an open shulker in a pot. Possible illegal mod involved.");
 
-                if(plugin.getSettings().getBoolean("extra.warn_staffs", true)) {
-                    plugin.getServer().broadcast(StringUtil.getMiniMessage().deserialize(MessageKeys.ILLEGAL_INTERACTION.get("{player}", player.getName())), KSBPermission.RECEIVE_ALERTS.toString());
+                if(plugin.getSettings().getBoolean("events." + e.getEventName() + ".notify_violations", true)) {
+                    MessageKeys.broadcast(player, MessageKeys.ILLEGAL_INTERACTION.get("{player}", player.getName()), KSBPermission.RECEIVE_ALERTS.toString());
                 }
 
                 e.setCancelled(true);
