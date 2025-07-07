@@ -23,6 +23,8 @@ public class Check {
     }
 	
     public static boolean isRegionDisabled(Location l, String e) {
+        if(!plugin.hasWorldGuard()) return false;
+
         RegionContainer cont = WorldGuard.getInstance().getPlatform().getRegionContainer();
         RegionQuery query = cont.createQuery();
         ApplicableRegionSet set = query.getApplicableRegions(BukkitAdapter.adapt(l));

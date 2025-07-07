@@ -10,13 +10,11 @@ import com.krazy.shulkers.listeners.InteractListener;
 import com.krazy.shulkers.listeners.InventoryCloseListener;
 import com.krazy.shulkers.manager.ShulkerManager;
 import com.krazy.shulkers.manager.chestsort.ChestSortManagerImpl;
-import com.krazy.shulkers.manager.worldguard.IWorldGuardManager;
-import com.krazy.shulkers.manager.worldguard.WorldGuardManagerImpl;
 
 public class KrazyShulkers extends JavaPlugin {
 
     private Config settings;
-    private static IWorldGuardManager worldGuardManager;
+    private boolean hasWorldGuard;
     private ShulkerManager shulkerManager;
 
     @Override
@@ -39,13 +37,14 @@ public class KrazyShulkers extends JavaPlugin {
     private void loadHooks() {
         PluginManager manager = getServer().getPluginManager();
 
-        if(manager.getPlugin("WorldGuard") != null && manager.isPluginEnabled("WorldGuard")) {
-           if(settings.getBoolean("shulkers.enable_world_guard",  true)) {
-                worldGuardManager = new WorldGuardManagerImpl();
+        if(manager.isPluginEnabled("WorldGuard")) {
+            if(settings.getBoolean("shulkers.enable_worldguard_hook", true)) {
+                hasWorldGuard = true;
                 getLogger().info("KrazyShulkers successfully hooked to WorldGuard");
             }
         }
-        if(manager.getPlugin("ChestSort") != null && manager.isPluginEnabled("ChestSort")) {
+
+        if(manager.isPluginEnabled("ChestSort")) {
             if(settings.getBoolean("shulkers.enable_chest_sort", true)) {
                 shulkerManager.setChestSortManager(new ChestSortManagerImpl());
                 getLogger().info("KrazyShulkers successfully hooked to ChestSort");
@@ -61,8 +60,8 @@ public class KrazyShulkers extends JavaPlugin {
         return settings;
     }
 
-    public static IWorldGuardManager getWorldGuardManager() {
-        return worldGuardManager;
+    public boolean hasWorldGuard() {
+        return hasWorldGuard;
     }
 
     public ShulkerManager getShulkerManager() {
