@@ -42,8 +42,8 @@ shulkers:
 messages:
   prefix: '<#de99fc><b>SHULKERS</b></#de99fc> <dark_gray>»</dark_gray>' # String - Chat prefix, do not add a space or any other characters after it
   reload: '{prefix} <gray>Configuration reloaded successfully.</gray>'
-  cooldown: '{prefix} <red>You have to wait</red> <aqua>{time}</aqua> <red>before using this again.</red>' # - String - Message to be sent to players who have to wait for the cooldown, use %minutes% and %seconds% to display the time remaining
-  open_message: '{prefix} <gray>Opening shulkerbox (</gray>{shulker_name}<gray>)...</gray>' # String - Message to be sent to a player when they open a shulker box, use %shulker_name% to display the item name, leave empty to disable
-  close_message: '{prefix} <gray>Closing shulkerbox (</gray>{shulker_name}<gray>)...</gray>' # String - Message to be sent to a player when they close a shulker box, use %shulker_name% to display the item name, leave empty to disable
+  cooldown: '{prefix} <red>You have to wait</red> <aqua>{time}</aqua> <red>before using this again.</red>' # - String - Message to be sent to players who have to wait for the cooldown, use {time} to display the time remaining
+  open_message: '{prefix} <gray>Opening shulkerbox (</gray>{shulker_name}<gray>)...</gray>' # String - Message to be sent to a player when they open a shulker box, use {shulker_name} to display the item name, leave empty to disable
+  close_message: '{prefix} <gray>Closing shulkerbox (</gray>{shulker_name}<gray>)...</gray>' # String - Message to be sent to a player when they close a shulker box, use {shulker_name} to display the item name, leave empty to disable
   no_permission: '{prefix} <red>No permission.</red>' # String - Message to be sent to players who don't have permissions to use certain features of the plugin
   illegal_interaction: '{prefix} <white>{player}</white> <gray>is trying to store a shulkerbox while its inventory is open. Possible illegal mod involved.</gray>'  # String - Alert send to staffs when someone is trying to use the pot exploit
