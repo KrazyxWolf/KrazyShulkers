@@ -18,6 +18,7 @@ public enum MessageKeys {
     OPEN_MESSAGE("messages.open_message", "{prefix} <gray>Opening shulkerbox (</gray>{shulker_name}<gray>)...</gray>"),
     CLOSE_MESSAGE("messages.close_message", "{prefix} <gray>Closing shulkerbox (</gray>{shulker_name}<gray>)...</gray>"),
     NO_PERMISSION("messages.no_permission", "{prefix} <red>No permission.</red>"),
+    INVALID_SYNTAX("messages.invalid_syntax", "{prefix} <red>Correct usage:</red> <aqua>/ksb <sub_command></aqua><red>.</red>"),
     ILLEGAL_ACTION("messages.illegal_action", "{prefix} <white>{player}</white> <gray>tried to trigger</gray> <white>{event}</white> <gray>while a shulker box was open.</gray>"),
     DISABLED_WORLD("messages.disabled_world", "{prefix} <red>You can't open shulkers in this world.</red>"),
     DISABLED_REGION("messages.disabled_region", "{prefix} <red>You can't open shulkers in this region.</red>"),

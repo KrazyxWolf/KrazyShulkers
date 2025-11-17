@@ -23,7 +23,9 @@ public class MainCommand implements CommandExecutor {
             MessageKeys.send(sender, MessageKeys.NO_PERMISSION.get());
             return true;
         }
-        if (args[0].equalsIgnoreCase("reload")) {
+        if (args.length == 0) {
+            MessageKeys.send(sender, MessageKeys.INVALID_SYNTAX.get());
+        } else if (args[0].equalsIgnoreCase("reload")) {
             plugin.getSettings().reload();
             MessageKeys.send(sender, MessageKeys.RELOAD.get());
         }

@@ -46,6 +46,7 @@ messages:
   open_message: '{prefix} <gray>Opening shulkerbox (</gray>{shulker_name}<gray>)...</gray>' # String - Message to be sent to a player when they open a shulker box, use {shulker_name} to display the item name, leave empty to disable
   close_message: '{prefix} <gray>Closing shulkerbox (</gray>{shulker_name}<gray>)...</gray>' # String - Message to be sent to a player when they close a shulker box, use {shulker_name} to display the item name, leave empty to disable
   no_permission: '{prefix} <red>No permission.</red>' # String - Message to be sent to players who don't have permissions to use certain features of the plugin
+  invalid_syntax: '{prefix} <red>Correct usage:</red> <aqua>/ksb <sub_command></aqua><red>.</red>' # String - Message to be sent when a player runs the plugin's main command without any arguments
   illegal_action: '{prefix} <white>{player}</white> <gray>tried to trigger</gray> <white>{event}</white> <gray>while a shulker box was open.</gray>' # String - Alert sent to staffs when someone is trying to trigger an event while a shulker box inventory opened through by the plugin is still open
   disabled_world: "{prefix} <red>You can't open shulkers in this world.</red>" # String - Message to be sent to a player when they try to open a shulker box in a blacklisted world
   disabled_region: "{prefix} <red>You can't open shulkers in this region.</red>" # String - Message to be sent to a player when they try to open a shulker box in a blacklisted region
